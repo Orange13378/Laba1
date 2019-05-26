@@ -1,0 +1,250 @@
+//Задание 4
+#include <iostream>
+using namespace std;
+struct employee {
+int num;
+float p;
+};
+int main()
+{
+employee emp1, emp2, emp3;
+setlocale(LC_ALL, ("Russian"));
+cout << "Введите номер первого работника и сумму его пособия:";
+cin >> emp1.num >> emp1.p;
+cout << "Введите номер второго работника и сумму его пособия:"; 
+cin >> emp2.num >> emp2.p;
+cout << "Введите номер третьего работника и сумму его пособия:";
+cin >>emp3.num >> emp3.p;
+cout << emp1.num << " " << emp1.p << endl << emp2.num << " " << emp2.p << endl << emp3.num << " " << emp3.p;
+return 0;
+}
+
+//Задание 5
+#include <iostream>
+using namespace std;
+struct date
+{
+int day;
+int month;
+int year;
+};
+int main()
+{
+date dat1;
+setlocale(LC_ALL, ("Russian"));
+cout << "Введите дату: ";
+cin >> dat1.day >> dat1.month >> dat1.year;
+cout << dat1.day << "/" << dat1.month << "/" << dat1.year;
+system("pause");
+return 0;
+}
+
+
+//Задание 6
+include <iostream>
+using namespace std;
+struct let
+{
+char etype;
+};
+int main()
+{
+let a;
+setlocale(LC_ALL, ("Russian"));
+cout << "Введите первую букву профессии:";
+cin >> a.etype;
+switch (a.etype)
+{
+case 'l':   cout << "laborer";   break;
+case 's':   cout << "secretary";  break;
+case 'm':  cout << "manager";  break;
+case 'a':  cout << "accountant";  break;
+case 'e':  cout << "executioner";  break;
+case 'r':  cout << "researcher";  break;
+return 0;
+}
+system("pause");
+return 0;
+}
+
+//Задание 7
+#include <iostream>
+using namespace std;
+struct Employee
+{
+int num, y, m, d;
+float pos;
+char let;
+};
+int main()
+{
+Employee emp1, emp2, emp3;
+setlocale(LC_ALL, ("Russian"));
+cout << "Введите номер работника: ";
+cin >> emp1.num;
+cout << endl << "Введите пособие работника: ";
+cin >> emp1.pos;
+cout << endl << "Введите дату принятия на работу: ";
+cin >> emp1.y >> emp1.m >> emp1.d;
+cout << endl << "Введите первую букву должности: ";
+cin >> emp1.let;
+cout << "Номер - " << emp1.num << endl << "Пособие - " << emp1.pos << endl << "Дата приема на работу - " << emp1.y << "." << emp1.m << "." << emp1.d << endl << "Должность - ";
+switch (emp1.let)
+{
+case 'l':   cout << "laborer";   break;
+case 's':   cout << "secretary";  break;
+case 'm':  cout << "manager";  break;
+case 'a':  cout << "accountant";  break;
+case 'e':  cout << "executioner";  break;
+case 'r':  cout << "researcher";  break;
+}
+cout << endl;
+cout << "Введите номер работника: ";
+cin >> emp2.num;
+cout << endl << "Введите пособие работника: ";
+cin >> emp2.pos;
+cout << endl << "Введите дату принятия на работу: ";
+cin >> emp2.y >> emp2.m >> emp2.d;
+cout << endl << "Введите первую букву должности: ";
+cin >> emp2.let;
+system("pause");
+return 0;
+}
+
+//Задание 8
+#include <iostream>
+using namespace std;
+struct Fraction
+{
+int a;
+int b;
+};	
+int main()
+{
+setlocale(LC_ALL,"Russian");
+Fraction x, y;
+cout << "Введите числитель первого числа: ";
+cin >> x.a;
+cout << "Введите знаменатель первого числа: ";
+cin >> x.b;
+cout << "Введите числитель второго числа: ";
+cin >> y.a;
+cout << "Введите числитель второго числа: ";
+cin >> y.b;
+cout << "Дробь: "<< x.a * y.a << "/" << x.b * y.b ;
+system("pause");
+return 0;
+}
+
+
+//Задание 9
+#include <iostream>
+using namespace std;
+struct time
+{
+int h;
+int min;
+int sec;
+};
+int main()
+{
+setlocale(LC_ALL,"Russian");
+time t;
+cout << "Введите часы: ";
+cin >> t.h;
+cout << "Введите минуты: ";
+cin>> t.min;
+cout << "Введите секунды: ";
+cin>> t.sec;
+cout << "Всего секунд: ";
+cout << t.h * 3600 + t.min * 60 + t.sec;
+system("pause");
+return 0;
+}
+
+
+//Задание 10
+#include <iostream>
+using namespace std;
+struct  sterling
+{
+int pound;
+int shilling;
+int pence;
+};
+int main()
+{
+setlocale(LC_ALL,"Russian");
+sterling sum, nsum;
+setlocale(LC_ALL, ("Russian"));
+cout << "Введите сумму в десятичных фунтах:";
+cin >> nsum.pound >> nsum.pence;
+sum.pence = nsum.pence + (nsum.pound * 100);
+sum.pound = sum.pence / 240;
+sum.pence = sum.pence % 240;
+sum.shilling = sum.pence / 12;
+sum.pence = sum.pence % 12;
+cout << "Фунтов: " << sum.pound << endl << "Шиллингов: " << sum.shilling << endl << "Пенсов: " << sum.pence;
+system("pause");
+return 0;
+}
+
+//Задание 11
+#include <iostream> 
+using namespace std; 
+struct time { 
+int seconds; 
+int minutes; 
+int hours; 
+}; 
+int main() { 
+time time1, time2; 
+setlocale(LC_ALL, ("Russian")); 
+cout << "Введите время: "; cin >> time1.hours >> time1.minutes >> time1.seconds; 
+time2.seconds = ((time1.hours * 3600) + (time1.minutes * 60) + time1.seconds); 
+time2.hours = time2.seconds / 3600; time2.seconds = time2.seconds % 3600; 
+time2.minutes = time2.seconds / 60; time2.seconds = time2.seconds % 60; 
+cout << time2.hours << "/" << time2.minutes << "/" << time2.seconds; 
+system("pause");
+}
+
+//Задание 12
+#include <iostream>
+using namespace std;
+struct Fraction
+{
+int a;
+int b;
+};
+int main() {
+setlocale(LC_ALL,"Russian");
+Fraction d1, d2;
+char mark = '1', mark1;
+while (mark == '1') {
+cout << "Введите значения дробей:";
+cin >> d1.a >> d1.b >> d2.a >> d2.b;
+cout << "Введите знак действия";
+cin >> mark1;
+switch (mark1) {
+case '+':
+d1.a = d1.a * d2.b + d2.a * d1.b;
+d1.b = d1.b * d2.b;
+cout << "Ответ: " << d1.a << "/" << d1.b << endl;
+break;
+case '-': d1.a = d1.a * d2.b - d2.a * d1.b;
+d1.b = d1.b * d2.b;
+cout << "Ответ = " << d1.a << "/" << d1.b << endl;
+break;
+case '*': d1.a = d1.a * d2.a;
+d1.b = d1.b * d2.b;
+cout << "Ответ: " << d1.a << "/" << d1.b << endl;
+break;
+case '/': d1.a = d1.a * d2.b;
+d1.b = d1.b * d2.a;
+cout << "Ответ: " << d1.a << "/" << d1.b << endl;
+break;
+}
+cout << "Для продолжения нажмите 1\n";
+cin >> mark;
+}
+}
