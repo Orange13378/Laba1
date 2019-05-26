@@ -1,0 +1,172 @@
+//Задание 4
+#include <iostream>
+#include <string>
+#include <ctype.h>
+#include <stdio.h>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+char z[]="ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮЁ";
+char s[]="Я пришел к тебе с приветом, Рассказать, что солнце встало, Что оно горячим светом По листам затрепетало";
+for(int i=0;i<strlen(s);i++)
+{
+for(int j=0;j<strlen(z);j++)
+	{
+		if (i==0)
+			continue;
+		if (s[i]==z[j])
+			cout<<endl;;
+	}
+cout<<s[i];
+}
+
+system("pause");
+return 0;
+}	
+
+//Задание 5
+#include <iostream>
+#include <stdio.h>
+#include <string>
+#include <ctype.h>
+using namespace std;
+int main()
+{
+	char a;
+	cin>>a;
+	cout<<islower(a);
+	system("pause");
+	return 0;
+}
+
+//Задание 6
+#include <iostream>
+#include <stdio.h>
+#include<cmath>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	double s;
+	cin>>s;
+	cout<<s<<"$ = "<<s/1.487<<" фунтов"<<endl;
+	cout<<s<<"$ = "<<s/0.172<<" франков"<<endl;
+	cout<<s<<"$ = "<<s/0.584<<" немецких марк"<<endl;
+	cout<<s<<"$ = "<<s/0.00955<<" японских йен"<<endl;
+	system("pause");
+	return 0;
+}
+
+//Задание 7
+#include <iostream>
+#include <stdio.h>
+#include<cmath>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	double t;
+	cin>>t;
+	cout<<t<<" градусов по Цельсию= ";
+	t=t*5;
+	t=t/9;
+	t=t+32;
+	cout<<t<<" градусов по Фарингейту"<<endl;
+	system("pause");
+	return 0;
+}
+
+//Задание 8
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+cout<<setfill('.')<<"Moscow"<<setw(20)<<8425785<<endl;
+system("pause");
+return 0;
+}
+
+//Задание 9
+#include <iostream>
+using namespace std;
+int main()
+{
+    setlocale(LC_CTYPE, "rus");
+    double a, b, c, d;
+    char drob;
+    cout<<"Введите первую дробь: ";
+    cin>>a>>drob>>b;
+    cout<<"Введите вторую дробь: ";
+    cin>>c>>drob>>d;
+
+cout<<"Сумма равна: "<<(a*d +  b*c)<<'/'<<(b*d)<<endl;
+cout<<"Разность равна: "<<(a*d - b*c)<<'/'<<(b*d)<<endl;
+cout<<"Произведение равно: "<<(a*c)<<'/'<<(b*d)<<endl;
+    cout<<"Частное равно: "<<(a*d)<<'/'<<(b*c)<<endl;
+    return 0;
+}
+
+//Задание 10
+#include <iostream>
+using namespace std;
+int main()
+{
+    setlocale(0, "Rus");
+    float f, s, p;
+    cout << "Введите количество фунтов: ";
+    cin >> f;
+    cout << "Введите количество шиллингов: ";
+    cin >> s;
+    cout << "Введите количество пенсов: ";
+    cin >> p;
+    float count = (s*12+p)/2.4;
+    int result = count;
+    cout << "Десятичных фунтов: " << f << "." << result << endl << endl;
+    system("pause");
+    return 0;
+}
+
+//Задание 11
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main()
+
+{
+	setlocale(LC_ALL, "Russian");
+	setiosflags(ios::left);
+
+	cout<<"Фамилия"<<setw(18)<<"Имя"<<setw(18)<<"Адрес"<<setw(18)<<"Город"<<endl
+	<<"Петров"<<setw(18)<<"Василий"<<setw(18)<<"Кленовая 16"<<setw(18)<<"Санкт-Петербург"<<endl
+	<<"Иванов"<<setw(18)<<"Сергей"<<setw(18)<<"Осиновая 3"<<setw(18)<<"Находка"<<endl
+	<<"Сидоров"<<setw(18)<<"Иван"<<setw(18)<<"Березовая 21"<<setw(18)<<"Калининград"<<endl;
+
+system("pause");
+return 0;
+}
+
+//Задание 12
+#include <iostream>
+using namespace std;
+int main ()
+{
+setlocale(LC_ALL,"Russian");
+float new_$, new_pens, shiling;
+int funt, pens, int_shiling;
+ 
+cout<<"Введите число десятичных фунтов: ";
+cin >>new_$;                     
+funt = static_cast<int>(new_$); 
+new_pens = new_$ - funt;
+shiling = new_pens * 20;
+int_shiling = static_cast<int>(shiling);
+new_pens = shilling - int_shiling;
+pens = new_pens * 12;
+cout<<endl<<"Эквивалентная сумма в старой форме записи: $" <<funt<<"."<<int_shiling<<"."<<pens<<endl<<endl;     
+   system ("pause");
+   return 0;    
+}
