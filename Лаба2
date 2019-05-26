@@ -1,0 +1,224 @@
+//Задание 5
+#include <iostream>
+#include <string>
+using namespace std;
+int main() 
+{
+int counter = 38,i,j;
+for (i=0;i<20;i++) 
+    {
+    string str="";
+    for (j=0;j<counter;j++) str+=' ';
+    for (j=0;j<39-counter;j++) str+='x';
+    counter-=2;
+    cout << str << endl;
+    }
+system("pause");
+}
+
+//Задание 7
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL,"Russian");
+	int nv,let;
+	double proc,s;
+	s=0;
+	cout<<"Введите начальный вклад:";
+	cin>>nv;
+	cout<<endl<<"Введите число лет: ";
+	cin>>let;
+	cout<<endl<<"Введите процентную ставку: ";
+	cin>>proc;
+	for (int i=1; i<=let; i++)
+	{
+		s=s+(nv+(nv*(proc/100)));
+	}
+	cout<<endl<<"Через "<<let<<" лет вы получите "<<s<<"доллара(ов)";
+	system("pause");
+	return 0;
+}
+
+//Задание 8
+#include <iostream>
+using namespace std;
+int main()
+{
+char ch;
+int funt,shil,pen,funt1, shil1,pen1,funtv,shilv,penv,shilost,penost;
+double ans;
+setlocale(LC_ALL,"Rus");
+funtv=0;
+shilv=0;
+penv=0;
+do 
+{
+cout<<"Введите первую сумму";
+cin>>funt>>shil>>pen;
+cout<<"Введите вторую сумму";
+cin>>funt1>>shil1>>pen1;
+	funtv=funt+funt1;
+	penv=pen+pen1;
+	shilv=shil+shil1;
+	if (penv>=12)
+	{
+		shilv++;
+		penv=penv-12;
+	}
+	if (shilv>20)
+	{
+		funtv++;
+		shilv=shilv-20;
+	}
+cout<<"Всего фунтов: "<<funtv<<endl<<"Шилингов: "<<shilv<<endl<<"Пенсов: "<<penv;
+ans = 0;
+cout<<"\nDo another (Enter 'y' or 'n')? ";
+cin>>ch;
+}
+while( ch != 'n' );
+system("pause");
+return 0;
+}
+
+//Задание 9
+#include <iostream>
+ using namespace std;
+
+ int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int gost,mest;
+	int s=1;
+	cout<<"Сколько гостей: ";
+	cin>>gost;
+	cout<<endl<<"Сколько мест: ";
+	cin>>mest;
+	do
+	{
+		s=s*gost;
+		gost=gost-1;;
+	}
+	while (gost>=mest-1);
+	cout<<endl<<"Возможных рассадок гостей за столом равно: "<<s;
+	system("pause");
+	return 0;
+}
+
+//Задание 10
+#include <iostream>
+using namespace std;
+int main() 
+{
+setlocale(LC_ALL, "Russian");
+float nv, years, proc, vs, a;
+cout<<"Введите начальный вклад: ";
+cin>>nv;
+cout<<"Введите процентную ставку: ";
+cin>>proc;
+cout<<"Введите нужную сумму: ";
+cin>>vs;
+years = 0;
+while (nv < vs) 
+	{
+		a = (nv*(proc/100));
+		nv += a;
+		years++;
+	}
+cout<<years<<" лет потребуется";
+system("pause");
+return 0;
+}
+
+//Задание 11
+#include <iostream>
+using namespace std;
+int main() 
+{
+	setlocale(LC_ALL, "Russian");
+	int funt1, funt2, funtv, shil2, shil1, shilv, pen1, pen2, penv, a, vs;
+	char oper, ch;
+do 
+{
+	cout<<"Введите первую сумму и знак ";
+	cin>>funt1>>shil1>>pen1>>oper;
+	vs = funt1 * 240 + shil1 * 12 + pen1;
+
+	switch (oper)
+{
+case '+': 
+	{ 
+		cout<<"Введите вторую сумму ";
+		cin>>funt2>>shil2>>pen2;
+		vs +=  funt2 * 240 + shil2 * 12 + pen2;
+		break;
+	}
+case '-': 
+	{ 
+		cout<<"Введите вторую сумму ";
+		cin>>funt2>>shil2>>pen2;
+		vs -= funt2 * 240 + shil2 * 12 + pen2;
+		break;
+	}
+case '*': 
+	{
+		cout<<"Введите вещественное число";
+		cin>>a;
+		vs *= a;
+		break;
+	}
+case '/': 
+	{
+		cout<<"Введите вещественное число";
+		cin>>a;
+		vs /= a;
+		break;
+	}
+}
+funtv = vs / 240; 
+shilv = (vs % 240) / 12;
+penv = (vs % 240) % 12;
+cout<<"Ответ:" <<funtv<< "."<<shilv<<"."<<penv;
+cout<<"Продолжить? (y/n)"<<endl;
+cin>>ch;
+} while (ch != 'n');
+return 0;
+system("pause");
+}
+
+//Задание 12
+#include <iostream>
+using namespace std;
+int main()
+{
+double a, b, c, d,ans;
+char drob;
+char oper, ch;
+do 
+{
+	setlocale(LC_ALL,"Rus");
+	cout<<"\nПервая дробь, знак, вторая дробь: ";
+	cin>>a>>drob>>b>>oper>>c>>drob>>d;
+	switch(oper)
+		{
+			case '+': ans =(a*d + b*c)/(b*d); 
+			cout<<"Сумма равна: "<<(a*d + b*c)<<'/'<<(b*d)<<endl; 
+			break;
+			case '-': ans = (a*d - b*c)/(b*d);
+			cout<<"Разность равна: "<<(a*d - b*c)<<'/'<<(b*d)<<endl;
+			break;
+			case '*': ans = (a*c)/(b*d);
+			cout<<"Произведение равно: "<<(a*c)<<'/'<<(b*d)<<endl;
+			break;
+			case '/': ans = (a*d)/(b*c);
+			cout<<"Частное равно: "<<(a*d)<<'/'<<(b*c)<<endl;
+			break;
+			default: ans = 0;
+}
+cout<<"Answer = " << ans;
+cout<<"\nDo another (Enter 'y' or 'n')? ";
+cin>>ch;
+} while( ch != 'n' );
+system("pause");
+return 0;
+}
