@@ -1,0 +1,592 @@
+//Задание 4
+#include <iostream>
+using namespace std;
+class employee
+{
+public:
+int n;
+float summa;
+public:
+employee()
+{
+n = 0;
+summa = 0;
+}
+employee(int a, float sum) {
+n = a;
+summa = sum;
+}
+void setN(int N) {
+n = N;
+}
+void setSumm(float Summ) {
+summa = Summ;
+}
+void display()
+{
+cout <<"Номер сотрудника: "<< n <<" Величина оклада: "<<summa<< endl;
+}
+};
+int main()
+{
+setlocale(LC_ALL, "rus");
+int n;
+float summa;
+employee s1, s2,s3;
+cout << "Введите данные трех сотрудников:(Номер и сумму) ";
+cin >> n >> summa;
+s1.setN(n);
+s1.setSumm(summa);
+cin >> n >> summa;
+s2.setN(n);
+s2.setSumm(summa);
+cin >> n >> summa;
+s3.setN(n);
+s3.setSumm(summa);
+s1.display();
+s2.display();
+s3.display();
+system("pause");
+return 0;
+}
+
+//Задание 5
+#include <iostream>
+using namespace std;
+class date
+{
+private:
+	int day, month, year;
+public:
+	date() :day(0), month(0), year(0) 
+	{}
+	date(int d, int m, int y) :day(d), month(m), year(y)
+	{}
+	void showdate()
+	{
+		cout << day << "/" << month << "/" << year<<endl;
+	}
+	void getdate(int d, int m, int y) 
+	{
+		day = d;
+		month = m;
+		year = y;
+	}
+};
+
+int main()
+{
+	setlocale(LC_ALL, "rus");
+	int day, month, year;
+	date data;
+	cout << "Введите день/месяц/год: ";
+	cin >> day >> month >> year;
+	data.getdate(day,month,year);
+	data.showdate();
+	system("pause");
+	return 0;
+}
+
+//Задание 6
+#include <iostream>
+#include <conio.h>
+using namespace std;
+class date
+{
+private:
+	int day, month, year;
+public:
+	date() :day(0), month(0), year(0) 
+	{}
+	date(int d, int m, int y) :day(d), month(m), year(y)
+	{}
+	void showdate()
+	{
+		cout << day << "/" << month << "/" << year<<endl;
+	}
+	void getdate(int d, int m, int y) 
+	{
+		day = d;
+		month = m;
+		year = y;
+	}
+};
+
+enum etype { laborer, secretary, manager, accountant, executive, researcher };
+class employee
+{
+private:
+	int n;
+	float summa;
+	date Data;
+	etype type;
+public:
+	employee()
+	{
+		n = 0;
+		summa = 0;
+	}
+	employee(int a, float sum, date data, etype Type) {
+		n = a;
+		summa = sum;
+		Data = data;
+		type = Type;
+	}
+	void getEmploy()
+	{
+		cout <<"Номер сотрудника: "<< n <<" Величина оклада: "<<summa<< endl;
+		Data.showdate();
+		switch (type)
+		{
+		case 0: cout << "laborer" << endl; break;
+		case 1: cout << "secretary" << endl; break;
+		case 2: cout << "manager" << endl; break;
+		case 3: cout << "accountant" << endl; break;
+		case 4: cout << "executive" << endl; break;
+		case 5: cout << "researcher" << endl; break;
+		}
+	}
+	void putEmploy(int N, float Summ, date data, char &Type)
+	{
+		n = N;
+		summa = Summ;
+		Data = data;
+		switch (Type) {
+		case 'l':
+			type = laborer;
+			break;
+		case 'e':
+			type = executive;
+			break;
+		case 's':
+			type = secretary;
+			break;
+		case 'm':
+			type = manager;
+			break;
+		case 'a':
+			type = accountant;
+			break;
+		case 'r':
+			type = researcher;
+			break;
+		}
+	}
+};
+ 
+int main()
+{
+setlocale(LC_ALL, "rus");
+int n;
+	float summa;
+	date Data;
+	int d, m, y;
+	char ch;
+	employee s1, s2;
+	cout << "Введите данные сотрудник: ";
+	cin >> n >> summa;
+	cout << "Введите день/месяц/год: " << endl; 
+	cin >> d >> m >> y; 
+	Data.getdate(d,m,y);
+	cout << "Введите первую букву должности: " << endl;
+	cin >> ch;
+	s1.putEmploy(n,summa,Data,ch);
+	s1.getEmploy();
+	system("pause");
+	return 0;
+}
+
+//Задание 7
+#include <iostream>
+using namespace std;
+class angle
+{
+private:
+	int n;
+	float min;
+	char l;
+public:
+	angle()
+	{
+		n = 0;
+		min = 0;
+	}
+	angle(int N, float MIN, char &L) {
+		n = N;
+		min = MIN;
+		l = L;
+	}
+	void chisl(int N, float MIN, char &L) {
+		n = N;
+		min = MIN;
+		l = L;
+	}
+	void display() {
+		cout << "Coordinate: ";
+		cout << n << '\xF8' << min << "' " << l << endl;
+	}
+};
+
+void mainQ() {
+	int n;
+	float min;
+	char l;
+	cout << "Enter coordinate: " << endl;
+	char str = ' ';
+	cin >> n >> min >> l;
+	angle p(n,min,l);
+	p.display();
+	while (str != 'e') {
+		cout << "Enter coordinate: " << endl;
+		cin >> n >> min >> l;
+		p.chisl(n,min,l);
+		p.display();
+		cout << "Enter e, to exit: " << endl;
+		cin >> str;
+    }
+}
+int main()
+{
+mainQ();
+system("pause");
+return 0;
+}
+
+//Задание 8
+#include <iostream>
+using namespace std;
+int number = 0;
+class pn
+{
+private:
+	int num;
+public:
+	pn() {
+		number++;
+		num = number;
+	}
+	int getTotalNumber() {
+		return number;
+	}
+	int getNumber() {
+		return num;
+	}
+};
+int main()
+{
+setlocale(LC_ALL, "rus");
+pn First, Second, Third;
+cout << "Мой порядковый номер: " << First.getTotalNumber()<<endl;
+cout << "Мой порядковый номер: " << Second.getTotalNumber() << endl;
+cout << "Мой порядковый номер: " << Third.getTotalNumber() << endl;
+cout << First.getNumber() << endl;
+cout << Second.getNumber() << endl;
+cout << Third.getNumber() << endl;
+system("pause");
+return 0;
+}
+
+//Задание 9
+#include <iostream>
+using namespace std;
+class fraction
+{
+private:
+	int chisl, znam;
+public:
+	fraction() :chisl(0), znam(0)
+	{ }
+	fraction(int ch, int zn): chisl(ch),znam(zn)
+	{ }
+	void vvod()
+	{
+		char ch;
+		ch = '/';
+		cout << "Введите дробь: " << endl;
+		cin >> chisl >> ch >> znam;
+	}
+	void add_fr(fraction f1, fraction f2)
+	{
+		chisl = f1.chisl * f2.znam + f1.znam * f2.chisl;
+		znam = f1.znam * f2.znam;
+	}
+	void display()
+	{
+		cout << chisl << "/" << znam << endl;
+	}
+};
+int main()
+{
+setlocale(LC_ALL, "rus");
+fraction fr1, fr2, fr_sum;
+	char ch;
+	do
+	{
+		fr1.vvod();
+		cout << "Введенная дробь: ";
+		fr1.display();
+		fr2.vvod();
+		cout << "Введенная дробь: ";
+		fr2.display();
+		fr_sum.add_fr(fr1, fr2);
+		fr_sum.display();
+		cout << "Повторить? (y/n)" << endl; cin >> ch;
+	} while (ch != 'n');
+system("pause");
+return 0;
+}
+
+//Задание 10
+#include <iostream>
+using namespace std;
+class angle
+{
+private:
+	int n;
+	float min;
+	char l;
+public:
+	angle() 
+	{ }
+	angle(int N, float MIN, char L) : n(N), min(MIN), l(L)
+	{ }
+	void input() {
+		char ch, L;
+		int N;
+		float MIN;
+		cout << "Coordinate: ";
+		cin >> N >> MIN >> L;
+		n = N;
+		min = MIN;
+		l = L;
+	}
+	void display() {
+		cout <<n << '\xF8' << min << "' " << l;
+	}
+};
+ 
+class ship
+{
+private:
+	static int _amount;
+	int _id;
+	angle p1;
+	angle p2;
+public:
+	ship() {
+		_id = ++_amount;
+	}
+  void display() {
+		cout << "ship number " << _id << " coords ";
+		p1.display();
+		cout << ", ";
+		p2.display();
+		cout << endl;
+	}
+	void input() {
+		char ch;
+		p1.input();
+		cin >> ch;
+		p2.input();
+	}
+};
+int ship::_amount = 0;
+int main()
+{
+ship s1, s2, s3;
+cout << "enter coords 3 ships\n";
+s1.input();
+s2.input();
+s3.input();
+cout << "your entered info:\n";
+s1.display();
+s2.display();
+s3.display();
+system("pause");
+return 0;
+}
+
+//Задание 11
+#include <iostream>
+using namespace std;
+
+class Fraction
+{
+private:
+	int chisl, znam;
+public:
+	Fraction() :chisl(0), znam(0)
+	{ }
+	void vvod()
+	{
+		char ch;
+		cout << "Введите дробь: " << endl;
+		cin >> chisl >> ch >> znam;
+	}
+	void pl(Fraction f1, Fraction f2)
+	{
+		chisl = f1.chisl * f2.znam + f1.znam * f2.chisl;
+		znam = f1.znam * f2.znam;
+	}
+	void sub(Fraction f1, Fraction f2)
+	{
+		chisl = f1.chisl * f2.znam - f1.znam * f2.chisl;
+		znam = f1.znam * f2.znam;
+	}
+	void mul(Fraction f1, Fraction f2)
+	{
+		chisl = f1.chisl * f2.chisl;
+		znam = f1.znam * f2.znam;
+	}
+	void div(Fraction f1, Fraction f2)
+	{
+		chisl = f1.chisl * f2.znam;
+		znam = f1.znam * f2.chisl;
+	}
+	void lowterms()
+	{
+		long tnum, tden, temp, gcd;
+		tnum = labs(chisl);            
+		tden = labs(znam);            
+		if (tden == 0)              
+		{
+			cout << "Недопустимый знаменатель!";
+			exit(1);
+		}
+		else if (tnum == 0)         
+		{
+			chisl = 0;
+            znam = 1; 
+			return;
+		}
+		while (tnum != 0)
+		{
+			if (tnum < tden)          
+			{
+				temp = tnum;
+                tnum = tden;
+                tden = temp;
+			} 
+			tnum = tnum - tden;      
+		}
+		gcd = tden;                  
+		chisl = chisl / gcd;             
+		znam = znam / gcd;
+	}
+	void disp_fr()const
+	{
+		cout << chisl << "/" << znam << endl;
+	}
+};
+int main()
+{
+setlocale(LC_ALL, "rus");
+char zn;
+do
+{
+	Fraction fr1, fr2, fr_sum;
+	fr1.vvod();
+	cout << "Введите знак" << endl; 
+	cin >> zn;
+	fr2.vvod();
+	switch (zn)
+	{
+	case '+': fr_sum.pl(fr1, fr2); break;
+	case '-': fr_sum.sub(fr1, fr2); break;
+	case '*': fr_sum.mul(fr1, fr2); break;
+	case '/': fr_sum.div(fr1, fr2); break;
+	}
+	fr_sum.lowterms();
+	fr_sum.disp_fr();
+	cout << "Повторить? (y/n)" << endl; cin >> zn;
+} while (zn != 'n');
+system("pause");
+return 0;
+}
+
+//Задание 12
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int number;
+
+class Fraction
+{
+public:
+	int chisl, znam;
+	Fraction() :chisl(0), znam(0)
+	{}
+	void mul_fr(Fraction f1, Fraction f2)
+	{
+		chisl = f1.chisl * f2.chisl;
+		znam = f1.znam * f2.znam;
+	}
+	void lowterms()
+	{
+		long tnum, tden, temp, gcd;
+		tnum = labs(chisl);
+		tden = labs(znam);
+		if (tden == 0)
+		{
+			cout << "Недопустимый знаменатель!";
+			exit(1);
+		}
+		else if (tnum == 0)
+		{
+			chisl = 0; 
+			znam = 1; 
+			return;
+		}
+		while (tnum != 0)
+		{
+			if (tnum < tden)
+			{
+				temp = tnum; 
+				tnum = tden;
+				tden = temp;
+			}
+			tnum = tnum - tden;
+		}
+		gcd = tden;
+		chisl = chisl / gcd;
+		znam = znam / gcd;
+	}
+	void disp_fr()const
+	{
+		cout << setw(5) << chisl << "/" << znam;
+	}
+};
+int main()
+{
+setlocale(LC_ALL, "rus");
+Fraction fr1, fr2, fr3;
+fr1.znam = fr2.znam = number;
+cout << "Введите знаменатель: " << endl; cin >> number;
+for (int j = 1; j < number; j++)
+{
+	fr1.chisl = j;
+	fr1.znam = number;
+	fr1.lowterms();
+	fr1.disp_fr();
+}
+cout << endl;
+for (int i = 1; i < number; i++)
+{
+	fr2.chisl = i;
+	fr2.znam = number;
+	fr2.lowterms();
+	fr2.disp_fr();
+
+	for (int j = 1; j < number; j++)
+	{
+		fr1.chisl = j;
+		fr1.znam = number;
+		fr3.mul_fr(fr1, fr2);
+		fr3.lowterms();
+		fr3.disp_fr();
+	}
+	cout << endl;
+}
+system("pause");
+return 0;
+}
