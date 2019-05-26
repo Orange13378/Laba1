@@ -1,0 +1,324 @@
+//Задание 5
+#include <iostream>
+using namespace std;
+long hms_to_secs(int h, int m, int s)
+{
+long secs;
+secs = h * 3600 + m * 60 + s;
+return secs;
+}
+int main()
+{
+setlocale(LC_ALL, "Russian");
+int h, m, s;
+char ans = 'y';
+do{ 
+	cout << "Введите время (ч.м.с): ";
+	cin >> h >> m >> s;
+	cout << "Ответ: " << hms_to_secs(h, m, s) << endl;
+	cout << "Продолжить (y/n)? " << endl;
+	cin >> ans;
+} while (ans == 'y');
+return 0;
+}
+
+//Задание 6
+#include <iostream>
+using namespace std;
+struct time
+{
+int seconds;
+int minutes;
+int hours;
+};
+long time_to_secs(int h, int m, int s)
+{
+long secs;
+secs = h * 3600 + m * 60 + s;
+return secs;
+}
+void secs_to_time(long a)
+{
+time time2;
+time2.hours = a / 3600;
+time2.minutes = (a % 3600) / 60;
+time2.seconds = (a % 3600) % 60;
+cout << "В исходном виде: " << time2.hours << "/" << time2.minutes << "/" << time2.seconds << endl;
+}
+int main()
+{
+time time1; 
+long secs;
+setlocale(LC_ALL, ("Russian"));
+cout << "Введите время: ";
+cin >> time1.hours >> time1.minutes >> time1.seconds;
+secs = time_to_secs(time1.hours, time1.minutes, time1.seconds);
+cout << "В секундах: " << secs << endl;
+secs_to_time(secs);
+system("pause");
+return 0;
+}
+
+//Задание 7
+#include <iostream>
+using namespace std;
+double power(double n, int p = 2);
+double power(double n, int p)
+{
+double result = 1.0;
+for (int j = 0; j < p; j++)
+result *= n;
+return result;
+}
+char power(char n, int p)
+{
+char result = 0;
+for (int j = 0; j < p; j++)
+result *= n;
+return result;
+}
+int power(int n, int p)
+{
+int result = 0;
+for (int j = 0; j < p; j++)
+result *= n;
+return result;
+}
+float power(float n, int p)
+{
+float result = 0;
+for (int j = 0; j < p; j++)
+result *= n;
+return result;
+}
+int main()
+{
+setlocale(LC_ALL, ("Russian"));
+double number, answer;
+int pow;
+char yeserno;
+cout << "Введите число: ";
+cin >> number;
+cout << "Будете вводить степень (y/n)? ";
+cin >> yeserno;
+if (yeserno == 'y') {
+cout << "Введите степень: ";
+cin >> pow;
+answer = power(number, pow);
+}
+else {
+answer = power(number, pow);
+}
+cout << "Ответ: " << answer << endl;
+system("pause");
+return 0;
+}
+
+//Задание 8
+#include <iostream>
+using namespace std;
+void swap(int &a, int &b) {
+int temp;
+temp = a;
+a = b;
+b = temp;
+}
+
+int main() {
+int a, b;
+setlocale(LC_ALL, "Rus");
+cout << "Введите число 1: ";
+cin >> a;
+cout << "Введите число 2: ";
+cin >> b;
+swap(a, b);
+cout << "\nЧисло 1 стало равно: " << a << endl << "Число 2 стало равно: " << b;
+system("pause");
+return 0;
+}
+
+//Задание 9
+#include <iostream>
+using namespace std;
+struct time
+{
+int seconds;
+int minutes;
+int hours;
+};	
+void swap(time &time1, time &time2,time &temp) {
+temp.seconds = time1.seconds;
+time1.seconds = time2.seconds;
+time2.seconds = temp.seconds;
+
+temp.minutes = time1.minutes;
+time1.minutes = time2.minutes;
+time2.minutes = temp.minutes;
+
+temp.hours = time1.hours;
+time1.hours = time2.hours;
+time2.hours = temp.hours;
+cout << "\nВремя 1 стало равно: " << time1.hours << "/" << time1.minutes << "/" << time1.seconds << endl << "Время 2 стало равно: " << time2.hours << "/" << time2.minutes << "/" << time2.seconds;
+}
+int main() {
+time time1, time2, temp;
+temp.seconds = 0;
+temp.minutes = 0;
+temp.hours = 0;
+setlocale(LC_ALL, "Rus");
+cout << "Введите время 1 (ч.м.с): ";
+cin >> time1.hours >> time1.minutes >> time1.seconds ;
+cout << "Введите время 2 (ч.м.с) : ";
+cin >> time2.hours >> time2.minutes >> time2.seconds;
+swap(time1, time2, temp);
+system("pause");
+return 0;
+}
+
+//Задание 10
+                                              1)Со статической локальной переменной:
+#include <iostream>
+using namespace std;
+void num() {
+static int a = 0;
+a++;
+cout << a << " ";
+}
+int main() {
+int a,b;
+setlocale(LC_ALL, "Rus");
+cout << "Сколько раз вызвать функцию?: ";
+cin >> b;
+for (int i = 0; i < b; i++) { 
+num();
+}
+system("pause");
+return 0;
+}
+                                                      2)С глобальной переменной
+#include <iostream>
+using namespace std;
+int a = 0;
+void num() {
+a++;
+cout << a << " ";
+}
+int main() {
+int a,b;
+setlocale(LC_ALL, "Rus");
+cout << "Сколько раз вызвать функцию?: ";
+cin >> b;
+for (int i = 0; i < b; i++) { 
+num();
+}
+system("pause");
+return 0;
+}
+
+//Задание 11
+#include <iostream>
+using namespace std;
+struct  sterling
+{
+int pound;
+int shilling;
+int pence;
+};
+void func1(int &pd1, int &sh1, int &pc1, int &pd2, int &sh2, int &pc2) {
+sterling ster1, ster2;
+ster1.pound = pd1;
+ster1.shilling = sh1;
+ster1.pence = pc1;
+ster2.pound = pd2;
+ster2.shilling = sh2;
+ster2.pence = pc2;
+}
+void func2(sterling &ster1, sterling &ster2) {
+int sum;
+sum = ster1.pence + ster2.pence + (ster1.shilling + ster2.shilling) * 12 + (ster1.pound + ster2.pound) * 240;
+ster1.pound = sum / 240;
+ster1.shilling = (sum % 240) / 12;
+ster1.pence = (sum % 240) % 12;
+}
+void out(sterling &ster1) {
+cout << "Сумма равна: " << ster1.pound << "." << ster1.shilling << "."<< ster1.pence;
+}
+int main()
+{
+setlocale(LC_ALL, ("Russian"));
+int pd1, sh1, pc1, pd2, sh2, pc2;
+sterling ster1, ster2;
+cout << "Введите первую сумму (фунты.шиллинги.пенсы): ";
+cin >> pd1 >> sh1 >> pc1;
+cout << "Введите вторую сумму (фунты.шиллинги.пенсы): ";
+cin >> pd2 >> sh2 >> pc2;
+ster1.pound = pd1;
+ster1.shilling = sh1;
+ster1.pence = pc1;
+ster2.pound = pd2;
+ster2.shilling = sh2;
+ster2.pence = pc2;
+func1(pd1, sh1, pc1, pd2, sh2, pc2);
+func2(ster1, ster2);
+out(ster1);
+system("pause");
+return 0;
+}
+
+
+//Задание 12
+#include <iostream> 
+using namespace std;
+struct fraction
+{
+int a;
+int b;
+};
+void sum(fraction d1, fraction d2) {
+d1.a = d1.a * d2.b + d2.a * d1.b;
+d1.b = d1.b * d2.b;
+cout << "Ответ: " << d1.a << "/" << d1.b << endl;
+};
+void razn(fraction d1, fraction d2) {
+d1.a = d1.a * d2.b - d2.a * d1.b;
+d1.b = d1.b * d2.b;
+cout << "Ответ = " << d1.a << "/" << d1.b << endl;
+};
+void mult(fraction d1, fraction d2) {
+d1.a = d1.a * d2.a;
+d1.b = d1.b * d2.b;
+cout << "Ответ: " << d1.a << "/" << d1.b << endl;
+};
+void div(fraction d1, fraction d2) {
+d1.a = d1.a * d2.b;
+d1.b = d1.b * d2.a;
+cout << "Ответ: " << d1.a << "/" << d1.b << endl;
+};
+int main()
+{
+fraction d1, d2;
+setlocale(LC_ALL, "Rus");
+char mark = '1', mark1;
+while (mark == '1') {
+cout << "Введите значения дробей: ";
+cin >> d1.a >> d1.b >> d2.a >> d2.b;
+cout << "Введите знак действия ";
+cin >> mark1;
+switch (mark1) {
+case '+':
+sum(d1, d2);
+break;
+case '-': 
+razn(d1, d2);
+break;
+case '*':
+mult(d1, d2);
+break;
+case '/': 
+div(d1, d2);
+break;
+}
+cout << "Для продолжения нажмите 1 ";
+cin >> mark;
+}
+}
